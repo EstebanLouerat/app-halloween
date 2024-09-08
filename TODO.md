@@ -1,0 +1,11 @@
+- [ ] Ratio:
+  - Pour 1 : x1 => 90s
+  - Pour 2 : x1.7 => 53s
+  - Pour 3 : x2.1 => 43s
+  - Pour 4 : x2.2 => 41s
+  - Pour le killer : hold 5s pour casser pour -20% du temps partiel
+- [ ] Progress bar
+- [ ] Temps generateur 90s
+- [ ] Sons pendant sabotage et réparation
+- [ ] Mettre le nombre de générateur et update dynamisquement
+- [ ] Améliorer l'UI

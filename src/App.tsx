@@ -3,7 +3,7 @@ import confetti from "canvas-confetti";
 import "./App.css";
 
 function App() {
-  const timerDuration = 30; // By default 2m
+  const timerDuration = 90; // By default 1m30
   const [count, setCount] = useState(timerDuration);
   const [activePlayers, setActivePlayers] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(true);
@@ -14,7 +14,7 @@ function App() {
 
   // Settings
   const maxTime = timerDuration;
-  const minTime = 5; // By default 45s
+  const minTime = 41; // By default 41s
   const killerIncreaseInterval =
     ((minTime + (maxTime - minTime) / 2) * 1000) / 60;
 
