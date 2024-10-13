@@ -1,11 +1,3 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  
-}
-
 button {
   -webkit-user-select: none; /* Disable text selection on iOS Safari */
   -webkit-touch-callout: none; /* Disable the callout menu on long press */
@@ -23,6 +15,24 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.settings-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 37px;
+  width: 45px;
+  /* background: none; */
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.settings-button:hover {
+  outline: 10px solid red;
+}
+
 .app-container {
   position: relative;
   /* display: flex; */
@@ -33,6 +43,7 @@ button:disabled {
 
 .card {
   text-align: center;
+  margin-top: 15vh;
   z-index: 1;
   transition: background-color 0.5s ease;
 }
@@ -57,29 +68,15 @@ button:disabled {
   font-size: 2em;
 }
 
-/* .time-out {
-  background-color: rgba(
-    0,
-    128,
-    0,
-    0.7
-  ); /* Greenish background when time runs out 
-} */
-
 .btn-killer {
   background-color: black;
   color: white;
-  padding: 15px;
-  margin: 10px;
   font-size: 18px;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  user-select: none;
-  cursor: pointer;
 }
 
 .btn-killer:disabled {
-  background-color: grey;
+  pointer-events: none;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
@@ -97,4 +94,21 @@ button:disabled {
 
 .btn-yellow {
   background: rgba(255, 255, 0, 0.5);
+}
+
+.cooldown {
+  color: red;
+}
+
+progress {
+  min-width: 60vw;
+  min-height: 2.5rem;
+}
+
+.progress {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
 }
