@@ -29,10 +29,6 @@ button:disabled {
   transition: background-color 0.3s ease;
 }
 
-.settings-button:hover {
-  outline: 10px solid red;
-}
-
 .app-container {
   position: relative;
   /* display: flex; */

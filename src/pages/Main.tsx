@@ -7,9 +7,13 @@ import "./Main.css";
 function Main() {
   const navigate = useNavigate();
 
+  // Settings
   const timerDuration = 90; // Par défaut 1m30
   const killerTimerDuration = 5; // Durée pour maintenir le bouton killer
   const killerCooldown = 20; // Cooldown de 20s pour le bouton killer
+  const playerTimerRate = [1, 1.7, 2.1, 2.2]; // the original rate
+  // const playerTimerRate = [0, 1, 1.5, 2, 2.5];
+
   const [count, setCount] = useState(timerDuration);
   const [killerCount, setKillerCount] = useState(killerTimerDuration);
   const [cooldownCount, setCooldownCount] = useState(killerCooldown);
@@ -21,18 +25,11 @@ function Main() {
   const intervalRef = useRef<number | null>(null);
   const killerIntervalRef = useRef<number | null>(null);
 
-  // Settings
-  const maxTime = timerDuration;
-  const minTime = 41; // Par défaut 41s
-  // const playerTimerRate = [1, 1.7, 2.1, 2.2]; // the original rate
-  const playerTimerRate = [0, 1, 1.5, 2, 2.5];
-
   const calculateInterval = () => {
     if (isKillerActive) return killerTimerDuration * 1000;
     if (isKillerCooldown) return killerCooldown * 1000;
     if (activePlayers === 0) return null;
-    const timeForPlayers =
-      (minTime + (maxTime - minTime)) / playerTimerRate[activePlayers];
+    const timeForPlayers = timerDuration / playerTimerRate[activePlayers];
     return (timeForPlayers * 1000) / 60;
   };
 
@@ -71,7 +68,7 @@ function Main() {
       if (prevCount <= 0) {
         setIsTimerRunning(false);
         showConfetti();
-        return maxTime;
+        return timerDuration;
       }
       return prevCount - 1;
     });
@@ -136,7 +133,7 @@ function Main() {
   const handleKillerBonus = () => {
     setCount((prevCount) => {
       const bonus = Math.floor(timerDuration * 0.2); // 20% de 90s = 18s
-      return Math.min(prevCount + bonus, maxTime);
+      return Math.min(prevCount + bonus, timerDuration);
     });
   };
 
